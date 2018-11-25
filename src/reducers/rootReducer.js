@@ -1,8 +1,17 @@
 import { combineReducers } from 'redux';
-import movieReducer from './movieReducer';
+import {
+    popularReducer,
+    topRatedReducer,
+    nowPlayingReducer,
+    upcomingReducer } from './movieReducer';
+import genreReducer from './genreReducer';
 
 const rootReducer = combineReducers({
-    movies: movieReducer
+    popular: popularReducer,
+    topRated: topRatedReducer,
+    nowPlaying: nowPlayingReducer,
+    upcoming: upcomingReducer,
+    genres: genreReducer
 });
 
 export default rootReducer;

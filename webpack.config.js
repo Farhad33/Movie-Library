@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
+            plugins: ['@babel/plugin-proposal-class-properties', 'babel-plugin-styled-components'],
           },
         },
         {
@@ -62,10 +62,6 @@ module.exports = (env, argv) => {
               loader: 'sass-loader',
             },
           ],
-        },
-        {
-          test: /\.svg$/,
-          loader: 'svg-sprite-loader',
         },
         {
           test: /\.(png|jpg|gif)$/,
@@ -99,6 +95,16 @@ module.exports = (env, argv) => {
               },
             },
           ],
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  name: '[name].[ext]',
+                  outputPath: 'fonts/'
+              }
+          }]
         },
       ],
     },
