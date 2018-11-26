@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import MovieListItem from './MovieListItem.jsx';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class MovieList extends Component {
 
     render() {
-        console.log("movie list props", this.props)
         return (
             <Category>
                 <CategoryTitle>{this.props.title}</CategoryTitle>
                 <Slider {...settings}>
                     {this.props.movies.map(movie => (
-                        <img src={`https://image.tmdb.org/t/p/w154${movie.poster_path}`} key={movie.id}/>
+                        <MovieListItem key={movie.id} movie={movie}/>
                     ))}
                 </Slider>
             </Category>

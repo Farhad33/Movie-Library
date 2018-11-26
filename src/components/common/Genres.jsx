@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { requestGenres } from '../../actions/genreActions';
-import styled from 'styled-components'
-
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class Genres extends Component {
     state = {
@@ -13,22 +14,23 @@ class Genres extends Component {
         this.props.requestGenres();
     }
 
-    handleClick = () => {
-        const status = this.state.status === 'none' ? 'block' : 'none';
-        this.setState({ status });
+    genreClick = (genre) => {
+        this.props.history.push(`${genre.id}`)
     }
 
     render() {
         return (
-            <GenreContainer>
-                <Button
-                    onClick={this.handleClick}
-                >
-                    Genres
-                </Button>
+            <GenreContainer
+                onMouseOver={() => this.setState({ status: 'flex' })}
+                onMouseLeave={() => this.setState({ status: 'none' })}
+            >
+                <Button>Genres</Button>
                 <GenreList status={this.state.status}>
                     {this.props.genres.map(genre => (
-                        <Genre key={genre.id}>
+                        <Genre
+                            key={genre.id}
+                            onClick={() => this.genreClick(genre)}
+                        >
                             {genre.name}
                         </Genre>            
                     ))}
@@ -41,12 +43,32 @@ class Genres extends Component {
 const GenreList = styled.ul`
     display: ${props => props.status};
     margin-left: 2em;
+    padding: 1em;
+    z-index: 10;
+    position: absolute;
+    background: #090808c4;
+    width: 30em;
+    min-width: 14em;
+    max-width: 22em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
 `;
 
 const Genre = styled.li`
-    padding: .5em 2em;
-    :hover {
-        color: #b3b3b3;
+    display: block;
+    padding: .5em 0;
+    min-width: 8em;
+    max-width: 10em;
+    font-size: .9em;
+    a {
+        color: white;
+        text-decoration: none;
+        :hover {
+            color: #b3b3b3;
+            text-decoration: underline;
+        }
     }
 `;
 
@@ -70,11 +92,11 @@ const Button = styled.div`
 `;
 
 const mapStateToProps = state => ({
-    genres: state.genres,
+    genres: state.genres
   })
   
   const mapDispatchToProps = dispatch => ({
     requestGenres: () => dispatch(requestGenres())
   })
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Genres)
+  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Genres))

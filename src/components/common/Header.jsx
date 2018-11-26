@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import logo from '../../Assets/logo.png';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Genres from './Genres.jsx';
 import search from '../../Assets/search.svg';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class Header extends Component {
 
     render() {
         return (
-            <div>
-                <NavBar>
-                    <Left>
+            <NavBar>
+                <Left>
+                    <Link to="/">
                         <Logo src={logo} alt="movie logo"/>
-                        <Genres />
-                    </Left>
-                    <Right>
-                        <Logo src={search} />
-                    </Right>
-                </NavBar>
-            </div>
+                    </Link>
+                    <Genres />
+                </Left>
+                <Right>
+                    <Logo src={search} />
+                </Right>
+            </NavBar>
         );
     }
 }
@@ -49,4 +51,4 @@ const Left = styled.div`
 
 
 
-export default Header;
+export default withRouter(Header);

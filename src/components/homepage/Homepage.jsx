@@ -7,7 +7,6 @@ import {
     requestUpcoming,
     requestLatest
 } from '../../actions/movieActions';
-import Header from '../common/Header.jsx';
 import MovieList from './MovieList.jsx';
 
 
@@ -25,10 +24,8 @@ class Homepage extends Component {
     }
     
     render() {
-        console.log('this.props => ', this.props)
         return (
             <div>
-                <Header />
                 <MovieList title={'Popular'} movies={this.props.popular}/>
                 <MovieList title={'Now Playing'} movies={this.props.nowPlaying}/>
                 <MovieList title={'Top Rated'} movies={this.props.topRated}/>
