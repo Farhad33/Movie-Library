@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "The Frontend take home project for Global-Gaming",
   "main": "index.js",
+  "homepage": "https://farhad33.github.io/Movie-Library/",
   "scripts": {
     "start": "npm-run-all build pro",
     "pro": "node server.js",
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "engines": {
     "node": ">=7.0.0"
@@ -47,6 +50,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "compression": "^1.7.3",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
