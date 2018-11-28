@@ -5,10 +5,16 @@ export const GET_NOW_PLAYING = 'GET_NOW_PLAYING';
 export const GET_TOP_RATED = 'GET_TOP_RATED';
 export const GET_UPCOMING = 'GET_UPCOMING';
 export const GET_LATEST = 'GET_LATEST';
+export const GET_MOVIE_DETAILS = 'GET_MOVIE_DETAILS';
 
 const getPopular = (movies) => ({
     type: GET_POPULAR,
     movies
+});
+
+const getMovieDetails = (movie) => ({
+    type: GET_MOVIE_DETAILS,
+    movie
 });
 
 const getNowPlaying = (movies) => ({
@@ -76,5 +82,13 @@ export const requestLatest = () => dispatch => {
     return makeGet(query)
     .then(movies => {
         dispatch(getLatest(movies));
+    });
+}
+
+export const requestMovieDetails = (movieId) => dispatch => {
+    const query = `/movie/${movieId}`;
+    return makeGet(query)
+    .then(movie => {
+        dispatch(getMovieDetails(movie));
     });
 }

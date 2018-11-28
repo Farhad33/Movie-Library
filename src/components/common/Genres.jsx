@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { requestGenres } from '../../actions/genreActions';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 class Genres extends Component {
@@ -15,7 +14,7 @@ class Genres extends Component {
     }
 
     genreClick = (genre) => {
-        this.props.history.push(`${genre.id}`)
+        this.props.history.push(`/genre/${genre.id}`)
     }
 
     render() {

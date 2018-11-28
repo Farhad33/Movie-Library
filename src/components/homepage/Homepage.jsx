@@ -7,14 +7,11 @@ import {
     requestUpcoming,
     requestLatest
 } from '../../actions/movieActions';
-import MovieList from './MovieList.jsx';
+import MovieCarousel from './MovieCarousel.jsx';
 
 
 class Homepage extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
+
     componentDidMount() {
         this.props.requestPopular();
         this.props.requestNowPlaying();
@@ -26,10 +23,10 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                <MovieList title={'Popular'} movies={this.props.popular}/>
-                <MovieList title={'Now Playing'} movies={this.props.nowPlaying}/>
-                <MovieList title={'Top Rated'} movies={this.props.topRated}/>
-                <MovieList title={'Upcoming'} movies={this.props.upcoming}/>
+                <MovieCarousel title={'Popular'} movies={this.props.popular}/>
+                <MovieCarousel title={'Now Playing'} movies={this.props.nowPlaying}/>
+                <MovieCarousel title={'Top Rated'} movies={this.props.topRated}/>
+                <MovieCarousel title={'Upcoming'} movies={this.props.upcoming}/>
             </div>
         );
     }

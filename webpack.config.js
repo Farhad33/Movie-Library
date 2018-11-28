@@ -32,6 +32,12 @@ module.exports = (env, argv) => {
       path: PUB_DIR,
       filename: './bundle.js',
     },
+    resolve: {
+      alias: {
+        src: SRC_DIR,
+        public: PUB_DIR
+      },
+    },
     module: {
       rules: [
         {

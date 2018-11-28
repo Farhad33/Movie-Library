@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { requestGenreMovies } from '../../actions/moviesGenreActions';
 import { withRouter } from 'react-router';
-
+import MovieList from '../common/MovieList.jsx';
 
 class Genre extends Component {
 
@@ -18,39 +18,11 @@ class Genre extends Component {
       }
 
     render() {
-        const movies = this.props.moviesGenre;
-        console.log('this.props => ', this.props)
         return (
-            <Container>
-                <MoviesContainer>
-                    {movies.map(movie => (
-                        <MovieImage
-                            key={movie.id}
-                            src={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
-                        />
-                    ))}
-                </MoviesContainer>
-            </Container>
+            <MovieList movies={this.props.moviesGenre}/>
         );
     }
 }
-
-const Container = styled.div`
-`;
-
-const MoviesContainer = styled.div`
-    width: 100%;
-`;
-
-const Div = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 auto;
-`;
-
-const MovieImage = styled.img`
-`;
 
 const mapStateToProps = state => ({
     moviesGenre: state.moviesGenre

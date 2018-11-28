@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from '../../Assets/logo.png';
 import styled from 'styled-components';
-import Genres from './Genres.jsx';
-import search from '../../Assets/search.svg';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import Genres from './Genres.jsx';
+import Search from './Search.jsx';
+import logo from 'src/Assets/logo.png';
 
 class Header extends Component {
 
@@ -18,7 +18,7 @@ class Header extends Component {
                     <Genres />
                 </Left>
                 <Right>
-                    <Logo src={search} />
+                    <Search />
                 </Right>
             </NavBar>
         );

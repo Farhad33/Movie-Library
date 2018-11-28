@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
-import MovieListItem from './MovieListItem.jsx';
+import MovieCarouselItem from './MovieCarouselItem.jsx';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-class MovieList extends Component {
+class MovieCarousel extends Component {
 
     render() {
         return (
@@ -13,7 +13,7 @@ class MovieList extends Component {
                 <CategoryTitle>{this.props.title}</CategoryTitle>
                 <Slider {...settings}>
                     {this.props.movies.map(movie => (
-                        <MovieListItem key={movie.id} movie={movie}/>
+                        <MovieCarouselItem key={movie.id} movie={movie}/>
                     ))}
                 </Slider>
             </Category>
@@ -30,7 +30,7 @@ const CategoryTitle = styled.h3`
     margin: .5em;
 `;
 
-export default MovieList;
+export default MovieCarousel;
 
   
 const settings = {
