@@ -1,4 +1,4 @@
-** Global Gaming FE Project **
+###Global Gaming FE Project
 
 In order to start the application, please run `npm start`
 
@@ -8,7 +8,7 @@ Technologies/Libraries Used:
 3. Axios
 4. Styled Components
 
-** Explanation **
+###Explanation
 
 I tried to mimic Netflix's UI as much as I could, while still implementing the required functionalities for the app. 
 
