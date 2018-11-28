@@ -5,7 +5,7 @@ var app = express();
 
 const SERVER_PORT = process.argv.slice(2)[0] || 8082;
 
-app.use(compression());
+// app.use(compression());
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
