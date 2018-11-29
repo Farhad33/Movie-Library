@@ -6,15 +6,12 @@
   "homepage": "https://farhad33.github.io/Movie-Library/",
   "scripts": {
     "postinstall": "webpack --mode production",
-    "start": "node server.js",
+    "start": "npm-run-all build pro",
     "pro": "node server.js",
     "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public"
-  },
-  "engines": {
-    "node": ">=7.0.0"
   },
   "author": "Majid Rahimi",
   "license": "ISC",
